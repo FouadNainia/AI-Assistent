@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WebTech Assistent — HS Merseburg</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-left">
+      <button class="hamburger" id="hamburgerBtn">☰</button>
+      <div class="logo-text">
+        <div class="logo-title">WebTech Assistent</div>
+        <div class="logo-sub">Hochschule Merseburg</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="status">
+        <div class="status-dot" id="statusDot"></div>
+        <span class="status-text" id="statusText">Offline</span>
+      </div>
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="btnDE">DE</button>
+        <button class="lang-btn" id="btnEN">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="setup-banner" id="setupBanner">
+    <p class="setup-msg" id="setupMsg">🔑 OpenAI API Key eingeben um zu starten</p>
+    <div class="setup-row">
+      <input type="password" id="apiKeyInput" class="key-input" placeholder="sk-..."/>
+      <button class="key-btn" id="keyBtn">Speichern</button>
+    </div>
+  </div>
+
+  <div class="layout">
+
+    <div class="overlay" id="overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <p class="sidebar-label" id="topicsTitle">Themen</p>
+      <div class="topic-list">
+        <button class="topic-btn active" data-topic="general"><span>🌐</span><span id="t-general">Allgemein</span></button>
+        <button class="topic-btn" data-topic="html"><span>📄</span><span>HTML</span></button>
+        <button class="topic-btn" data-topic="css"><span>🎨</span><span>CSS</span></button>
+        <button class="topic-btn" data-topic="javascript"><span>⚡</span><span>JavaScript</span></button>
+        <button class="topic-btn" data-topic="http"><span>🌍</span><span>HTTP & APIs</span></button>
+        <button class="topic-btn" data-topic="dom"><span>🌳</span><span>DOM</span></button>
+        <button class="topic-btn" data-topic="responsive"><span>📱</span><span>Responsive</span></button>
+      </div>
+      <div class="sidebar-divider"></div>
+      <p class="sidebar-label" id="suggestTitle">Vorschläge</p>
+      <div class="suggest-list" id="suggestions"></div>
+      <div class="sidebar-bottom">
+        <button class="clear-btn" id="clearBtn">🗑️ Chat leeren</button>
+      </div>
+    </aside>
+
+    <div class="chat">
+      <div class="messages" id="messages">
+        <div class="msg-row ai">
+          <div class="avatar">AI</div>
+          <div class="bubble ai-bubble" id="welcomeMsg">
+            👋 Hallo! Ich bin dein Webtechnologien-Assistent.<br/><br/>
+            Ich helfe dir bei HTML, CSS, JavaScript, HTTP, DOM und mehr.<br/>
+            Wähle ein Thema oder stell mir direkt eine Frage!
+          </div>
+        </div>
+      </div>
+      <div class="input-area">
+        <div class="input-box">
+          <textarea id="userInput" class="user-input" rows="1"
+            placeholder="Stell mir eine Frage…"></textarea>
+          <button class="send-btn" id="sendBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"/>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+          </button>
+        </div>
+        <p class="input-hint" id="inputHint">Enter zum Senden · Shift+Enter für neue Zeile</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
